@@ -9,7 +9,7 @@ const variants = {
   },
   sm: {
     fontSize: fontSizes[2],
-    fontWeight: fontWeights.medium,
+    fontWeight: fontWeights.semi,
   },
 }
 
