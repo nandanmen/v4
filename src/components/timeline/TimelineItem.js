@@ -11,7 +11,7 @@ const TimelineItem = ({ html, endDate, startDate, title }) => (
   <div>
     <Header>
       <Text variant="secondary">{new Date(startDate).toDateString()}</Text>
-      <Heading variant="sm">{title}</Heading>
+      <Heading variant="h3">{title}</Heading>
     </Header>
     <article dangerouslySetInnerHTML={{ __html: html }} />
   </div>

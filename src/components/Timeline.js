@@ -12,7 +12,7 @@ const Timeline = ({ data, title }) => {
   const items = data.edges.map(edge => edge.node)
   return (
     <Container>
-      <Heading variant="md">{title}</Heading>
+      <Heading variant="h2">{title}</Heading>
       <Content>
         {items.map(item => (
           <TimelineItem key={item.id} {...item} {...item.frontmatter} />

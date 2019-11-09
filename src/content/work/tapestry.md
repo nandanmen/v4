@@ -1,6 +1,6 @@
 ---
 title: Software Developer @ UBC Psychology
-startDate: 2019-09-01
+startDate: 2019-09-02
 endDate: 9999-12-31
 ---
 
