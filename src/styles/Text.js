@@ -1,20 +1,24 @@
 import styled from "styled-components"
-import theme from "./theme"
+import { variant } from "styled-system"
 
-const { colors, fontSizes } = theme
+import Box from "./Box"
 
-const variants = {
-  secondary: {
-    color: colors.grays.dark,
-  },
+const Text = styled(Box).attrs({ as: "p" })(
+  variant({
+    variants: {
+      primary: {
+        color: "blacks.body",
+      },
+      secondary: {
+        color: "grays.dark",
+      },
+    },
+  })
+)
+
+Text.defaultProps = {
+  variant: "primary",
+  fontSize: [0, 1],
 }
-
-const getVariant = variant => variants[variant] || {}
-
-const Text = styled.p(({ variant }) => ({
-  color: colors.blacks.body,
-  fontSize: fontSizes[1],
-  ...getVariant(variant),
-}))
 
 export default Text
