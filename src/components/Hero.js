@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 import Heading from "@styles/Heading"
+import Box from "@styles/Box"
 import theme from "@styles/theme"
 
 const { fontSizes, space } = theme
@@ -9,7 +10,7 @@ const { fontSizes, space } = theme
 const Hero = ({ data }) => {
   const { frontmatter, html } = data.edges[0].node
   return (
-    <Container>
+    <Container mb={[5, 6]}>
       <Heading>{frontmatter.title}</Heading>
       <Description dangerouslySetInnerHTML={{ __html: html }} />
     </Container>
@@ -18,7 +19,7 @@ const Hero = ({ data }) => {
 
 export default Hero
 
-const Container = styled.header({
+const Container = styled(Box).attrs({ as: "header" })({
   alignItems: "center",
   display: "flex",
   flexDirection: "column",

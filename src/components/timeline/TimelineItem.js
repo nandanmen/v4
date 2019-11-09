@@ -11,7 +11,9 @@ const { colors, space } = theme
 const TimelineItem = ({ html, endDate, startDate, title }) => (
   <div>
     <Header>
-      <Text variant="secondary">{getDateText(startDate, endDate)}</Text>
+      <Text mb={1} variant="secondary">
+        {getDateText(startDate, endDate)}
+      </Text>
       <Heading variant="h3">{title}</Heading>
     </Header>
     <article dangerouslySetInnerHTML={{ __html: html }} />
@@ -31,7 +33,7 @@ const getDateText = (startDate, endDate) => {
 }
 
 const Header = styled.header`
-  margin-bottom: ${space[3]};
+  margin-bottom: ${space[3]}px;
   padding-top: 6px;
   position: relative;
 
