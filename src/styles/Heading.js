@@ -1,25 +1,41 @@
+import Types from "prop-types"
 import styled from "styled-components"
+import { variant, typography } from "styled-system"
+
+import Box from "./Box"
 import theme from "./theme"
 
-const { colors, fontWeights, fontSizes } = theme
+const { colors, fontWeights } = theme
 
-const variants = {
-  md: {
-    fontSize: fontSizes[4],
+const Heading = styled(Box).attrs(({ variant }) => ({ as: variant }))(
+  {
+    color: colors.blacks.title,
+    fontWeight: fontWeights.bold,
+    lineHeight: 1.2,
   },
-  sm: {
-    fontSize: fontSizes[2],
-    fontWeight: fontWeights.semi,
-  },
+  typography,
+  variant({
+    variants: {
+      h1: {
+        fontSize: 6,
+      },
+      h2: {
+        fontSize: 4,
+      },
+      h3: {
+        fontSize: 2,
+        fontWeight: "semi",
+      },
+    },
+  })
+)
+
+Heading.propTypes = {
+  variant: Types.oneOf(["h1", "h2", "h3"]),
 }
 
-const getVariant = variant => variants[variant] || {}
-
-const Heading = styled.h1(({ variant }) => ({
-  color: colors.blacks.title,
-  fontSize: fontSizes[6],
-  fontWeight: fontWeights.bold,
-  ...getVariant(variant),
-}))
+Heading.defaultProps = {
+  variant: "h1",
+}
 
 export default Heading

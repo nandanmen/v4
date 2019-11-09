@@ -1,15 +1,19 @@
 import styled from "styled-components"
+
+import Box from "./Box"
 import theme from "./theme"
 
-const { grid, space } = theme
+const { grid } = theme
 
-const Section = styled.section(props => ({
+const Section = styled(Box).attrs({ as: "section" })({
   display: "grid",
   gridColumn: "1 / -1",
   gridColumnGap: grid.gap,
   gridTemplateColumns: grid.columns,
-  marginBottom: space[5],
-  ...props,
-}))
+})
+
+Section.defaultProps = {
+  mb: 5,
+}
 
 export default Section
