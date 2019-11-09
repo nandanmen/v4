@@ -1,10 +1,12 @@
 import React from "react"
+
 import GlobalStyle from "@styles/GlobalStyle"
+import Grid from "@styles/Grid"
 
 const Layout = ({ children }) => (
   <div id="root">
     <GlobalStyle />
-    <main>{children}</main>
+    <Grid>{children}</Grid>
   </div>
 )
 
