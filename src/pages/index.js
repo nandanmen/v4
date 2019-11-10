@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Hero from "@components/Hero"
 import Layout from "@components/Layout"
+import Projects from "@components/Projects"
 import Timeline from "@components/Timeline"
 
 import Section from "@styles/Section"
@@ -52,16 +53,35 @@ export default () => {
           }
         }
       }
+      projects: allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "/projects/" } }
+      ) {
+        edges {
+          node {
+            id
+            html
+            frontmatter {
+              title
+              tech
+              github
+              link
+              color
+              cover
+            }
+          }
+        }
+      }
     }
   `)
 
   return (
     <Layout>
       <Hero data={content.hero} />
-      <Section>
+      <Section mb={[4, 5]}>
         <Timeline data={content.work} title="Work" />
         <Timeline data={content.activities} title="Activities" />
       </Section>
+      <Projects data={content.projects} />
     </Layout>
   )
 }
