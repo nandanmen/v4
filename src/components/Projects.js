@@ -20,6 +20,7 @@ const Projects = ({ data }) => {
       <Section mb={0}>
         {projects.map(project => (
           <ProjectCard
+            key={project.id}
             gridColumn="span 4"
             {...project}
             {...project.frontmatter}

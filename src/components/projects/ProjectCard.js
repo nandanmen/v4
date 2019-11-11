@@ -37,7 +37,7 @@ const Figure = styled(Box).attrs({ as: "figure" })`
   border-radius: 8px;
   height: 368px;
   overflow: hidden;
-  width: auto;
+  width: 100%;
 
   &:hover {
     img {
@@ -46,7 +46,7 @@ const Figure = styled(Box).attrs({ as: "figure" })`
   }
 `
 
-const Image = styled(Box).attrs({ as: "image" })`
+const Image = styled(Box).attrs({ as: "img" })`
   width: 100%;
   transition: all 0.2s ease-out;
 
