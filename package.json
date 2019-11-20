@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "v4",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "v4 of narendras.io",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
@@ -22,8 +22,7 @@
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "styled-components": "^4.4.1",
-    "styled-icons": "^8.6.0",
-    "styled-system": "^5.1.2"
+    "styled-icons": "^8.6.0"
   },
   "devDependencies": {
     "prettier": "^1.18.2"

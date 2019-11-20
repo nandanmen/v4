@@ -4,8 +4,13 @@ space.pageMargin = space[7]
 const fontSizes = [14, 16, 20, 24, 32, 46, 64, 72, 80]
 fontSizes.lg = 20
 
+const breakpoints = [768, 1024, 1366]
+breakpoints.sm = breakpoints[0]
+breakpoints.md = breakpoints[1]
+breakpoints.lg = breakpoints[2]
+
 export default {
-  breakpoints: [768, 1024, 1366],
+  breakpoints,
   colors: {
     blacks: {
       title: `#262626`,
