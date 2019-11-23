@@ -5,8 +5,8 @@ const colors = {
 }
 
 colors.text = {
-  primary: colors.white,
-  secondary: colors.blacks[4],
+  heading: colors.white,
+  primary: `#7e7f98`,
 }
 
 colors.blues.dark = colors.blues[0]

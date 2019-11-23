@@ -1,5 +1,12 @@
 import React from "react"
 
-const Layout = props => <main {...props} />
+import GlobalStyle from "@styles/GlobalStyle"
+
+const Layout = props => (
+  <>
+    <GlobalStyle />
+    <main {...props} />
+  </>
+)
 
 export default Layout
