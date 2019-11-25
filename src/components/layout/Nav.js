@@ -2,10 +2,12 @@ import React from "react"
 import styled from "styled-components"
 import { Link as BaseLink } from "gatsby"
 
+import Dots from "@components/Dots"
 import theme from "@styles/theme"
 
 const Nav = ({ pages }) => (
   <NavContainer>
+    <Dots space={6} />
     <NavItemsContainer>
       {pages.map(({ name, path }) => (
         <NavItem key={path}>
@@ -32,11 +34,13 @@ const NavItemsContainer = styled.ul`
 const NavItem = styled.li`
   margin-right: ${theme.space[2]}px;
   opacity: 0;
+  pointer-events: none;
 
   &:last-child {
     margin-left: auto;
     margin-right: 0;
     opacity: 1;
+    pointer-events: all;
   }
 `
 
