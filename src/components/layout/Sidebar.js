@@ -6,13 +6,13 @@ import theme from "@styles/theme"
 
 const Sidebar = ({ pages }) => (
   <SidebarContainer>
-    <ul>
+    <SidebarItemsContainer>
       {pages.map(({ name, path }) => (
-        <li key={path}>
+        <SidebarItem key={path}>
           <Link to={path}>{name}</Link>
-        </li>
+        </SidebarItem>
       ))}
-    </ul>
+    </SidebarItemsContainer>
   </SidebarContainer>
 )
 
@@ -30,12 +30,24 @@ const SidebarContainer = styled.aside`
 
   padding: ${theme.space[3]}px;
 
-  background-color: ${theme.colors.blacks[2]};
+  background-color: #222223;
+`
+
+const SidebarItemsContainer = styled.ul`
+  list-style: none;
+`
+
+const SidebarItem = styled.li`
+  margin-bottom: ${theme.space[3]}px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 `
 
 const Link = styled(BaseLink)`
   color: ${theme.colors.white};
-  font-size: ${theme.fontSizes[0]}px;
-  font-weight: ${theme.fontWeights.semi};
+  font-size: ${theme.fontSizes[3]}px;
+  font-weight: ${theme.fontWeights.medium};
   text-decoration: none;
 `
