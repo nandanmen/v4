@@ -20,6 +20,10 @@ const pages = [
     name: "Contact",
     path: "./hello",
   },
+  {
+    name: "Resume",
+    path: "./resume.pdf",
+  },
 ]
 
 const Layout = props => (
