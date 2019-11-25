@@ -1,7 +1,7 @@
 const colors = {
   blacks: [`#09090b`, `#16171C`, `#262730`, `#373844`, `#373844`],
   blues: [`#362A89`, `#6D58FF`, `#5C86FF`],
-  white: `#ffffff`,
+  white: `#f0f0f0`,
 }
 
 colors.text = {
