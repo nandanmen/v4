@@ -1,22 +1,29 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { Link as BaseLink } from "gatsby"
 
 import Dots from "@components/Dots"
 import theme from "@styles/theme"
+import Sidebar from "./Sidebar"
 
-const Nav = ({ pages }) => (
-  <NavContainer>
-    <Dots space={6} />
-    <NavItemsContainer>
-      {pages.map(({ name, path }) => (
-        <NavItem key={path}>
-          <Link to={path}>{name}</Link>
-        </NavItem>
-      ))}
-    </NavItemsContainer>
-  </NavContainer>
-)
+const Nav = ({ pages }) => {
+  const [isOpen, setIsOpen] = useState(false)
+  return (
+    <>
+      {isOpen && <Sidebar pages={pages} />}
+      <NavContainer>
+        <Logo onClick={() => setIsOpen(prev => !prev)} space={6} />
+        <NavItemsContainer>
+          {pages.map(({ name, path }) => (
+            <NavItem key={path}>
+              <Link to={path}>{name}</Link>
+            </NavItem>
+          ))}
+        </NavItemsContainer>
+      </NavContainer>
+    </>
+  )
+}
 
 export default Nav
 
@@ -53,4 +60,8 @@ const Link = styled(BaseLink)`
   font-size: ${theme.fontSizes[0]}px;
   font-weight: ${theme.fontWeights.semi};
   text-decoration: none;
+`
+
+const Logo = styled(Dots)`
+  z-index: 20;
 `

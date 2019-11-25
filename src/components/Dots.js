@@ -6,11 +6,11 @@ import { array, prop } from "@utils"
 
 const DOT_SIZE = 5
 
-const Dots = ({ numX = 2, numY = 2, space = 24 }) => {
+const Dots = ({ numX = 2, numY = 2, space = 24, ...props }) => {
   const xArr = array(numX)
   const yArr = array(numY)
   return (
-    <DotGrid x={numX} y={numY} gap={space}>
+    <DotGrid x={numX} y={numY} gap={space} {...props}>
       {xArr.map((_, x) => yArr.map((_, y) => <Dot key={`${x}/${y}`} />))}
     </DotGrid>
   )
