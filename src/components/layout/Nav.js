@@ -22,6 +22,10 @@ export default Nav
 
 const NavContainer = styled.nav`
   padding: ${theme.space[3]}px;
+
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
 `
 
 const NavItemsContainer = styled.ul`

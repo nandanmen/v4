@@ -11,7 +11,7 @@ const Dots = ({ numX = 2, numY = 2, space = 24 }) => {
   const yArr = array(numY)
   return (
     <DotGrid x={numX} y={numY} gap={space}>
-      {xArr.map(() => yArr.map(() => <Dot />))}
+      {xArr.map((_, x) => yArr.map((_, y) => <Dot key={`${x}/${y}`} />))}
     </DotGrid>
   )
 }
