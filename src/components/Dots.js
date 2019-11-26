@@ -26,7 +26,7 @@ const DotGrid = styled(motion.div)`
   grid-template-rows: repeat(${prop("y")}, ${DOT_SIZE}px);
 `
 
-const Dot = styled(motion.div)`
+export const Dot = styled(motion.div)`
   height: ${DOT_SIZE}px;
   width: ${DOT_SIZE}px;
 
