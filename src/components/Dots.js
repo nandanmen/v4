@@ -1,4 +1,5 @@
 import React from "react"
+import { motion } from "framer-motion"
 import styled from "styled-components"
 
 import theme from "@styles/theme"
@@ -18,14 +19,14 @@ const Dots = ({ numX = 2, numY = 2, space = 24, ...props }) => {
 
 export default Dots
 
-const DotGrid = styled.div`
+const DotGrid = styled(motion.div)`
   display: grid;
   grid-gap: ${prop("gap")}px;
   grid-template-columns: repeat(${prop("x")}, ${DOT_SIZE}px);
   grid-template-rows: repeat(${prop("y")}, ${DOT_SIZE}px);
 `
 
-const Dot = styled.div`
+const Dot = styled(motion.div)`
   height: ${DOT_SIZE}px;
   width: ${DOT_SIZE}px;
 

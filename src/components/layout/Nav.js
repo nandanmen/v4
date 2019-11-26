@@ -11,6 +11,11 @@ const sidebarVariants = {
   closed: { x: "-100%" },
 }
 
+const logoVariants = {
+  open: { rotate: 45 },
+  closed: { rotate: 0 },
+}
+
 const Nav = ({ pages }) => {
   const [isOpen, setIsOpen] = useState(false)
   return (
@@ -22,7 +27,12 @@ const Nav = ({ pages }) => {
         variants={sidebarVariants}
       />
       <NavContainer>
-        <Logo onClick={() => setIsOpen(prev => !prev)} space={6} />
+        <Logo
+          animate={isOpen ? "open" : "closed"}
+          onClick={() => setIsOpen(prev => !prev)}
+          space={6}
+          variants={logoVariants}
+        />
         <NavItemsContainer>
           {pages.map(({ name, path }) => (
             <NavItem key={path}>
