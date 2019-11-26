@@ -22,8 +22,22 @@ const containerVariants = {
 }
 
 const childVariants = {
-  visible: { opacity: 1, y: 0 },
-  hidden: { opacity: 0, y: 16 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "tween",
+      ease: "easeOut",
+    },
+  },
+  hidden: {
+    opacity: 0,
+    y: 16,
+    transition: {
+      type: "tween",
+      ease: "easeOut",
+    },
+  },
 }
 
 const Hero = ({ data }) => {
@@ -55,7 +69,7 @@ const Header = styled(motion.header)`
 `
 
 const Title = styled(motion.h1)`
-  margin-top: ${theme.space[4]}px;
+  margin-top: ${theme.space[6]}px;
   font-size: ${theme.fontSizes[3]}px;
 `
 
