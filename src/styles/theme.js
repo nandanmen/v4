@@ -1,8 +1,8 @@
 const breakpoints = {
-  xs: "@media and screen (min-width: 768px)",
-  sm: "@media and screen (min-width: 1024px)",
-  md: "@media and screen (min-width: 1366px)",
-  lg: "@media and screen (min-width: 1920px)",
+  xs: "@media screen and (min-width: 768px)",
+  sm: "@media screen and (min-width: 1024px)",
+  md: "@media screen and (min-width: 1366px)",
+  lg: "@media screen and (min-width: 1920px)",
 }
 
 const colors = {

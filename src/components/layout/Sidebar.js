@@ -31,6 +31,11 @@ const SidebarContainer = styled.aside`
   padding: ${theme.space[3]}px;
 
   background-color: #222223;
+  opacity: 1;
+
+  ${theme.breakpoints.sm} {
+    opacity: 0;
+  }
 `
 
 const SidebarItemsContainer = styled.ul`
