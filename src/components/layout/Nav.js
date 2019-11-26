@@ -6,11 +6,21 @@ import Dots from "@components/Dots"
 import theme from "@styles/theme"
 import Sidebar from "./Sidebar"
 
+const sidebarVariants = {
+  open: { x: 0 },
+  closed: { x: "-100%" },
+}
+
 const Nav = ({ pages }) => {
   const [isOpen, setIsOpen] = useState(false)
   return (
     <>
-      {isOpen && <Sidebar pages={pages} />}
+      <Sidebar
+        animate={isOpen ? "open" : "closed"}
+        pages={pages}
+        transition={{ type: "tween", ease: "easeOut" }}
+        variants={sidebarVariants}
+      />
       <NavContainer>
         <Logo onClick={() => setIsOpen(prev => !prev)} space={6} />
         <NavItemsContainer>

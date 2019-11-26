@@ -1,11 +1,12 @@
+import { motion } from "framer-motion"
 import { Link as BaseLink } from "gatsby"
 import React from "react"
 import styled from "styled-components"
 
 import theme from "@styles/theme"
 
-const Sidebar = ({ pages }) => (
-  <SidebarContainer>
+const Sidebar = ({ pages, ...props }) => (
+  <SidebarContainer {...props}>
     <SidebarItemsContainer>
       {pages.map(({ name, path }) => (
         <SidebarItem key={path}>
@@ -18,7 +19,7 @@ const Sidebar = ({ pages }) => (
 
 export default Sidebar
 
-const SidebarContainer = styled.aside`
+const SidebarContainer = styled(motion.aside)`
   bottom: 0;
   left: 0;
   position: fixed;
