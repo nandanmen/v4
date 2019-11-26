@@ -10,7 +10,7 @@ const containerVariants = {
     opacity: 1,
     transition: {
       when: "beforeChildren",
-      staggerChildren: 0.1,
+      staggerChildren: 0.2,
     },
   },
   hidden: {
@@ -65,7 +65,7 @@ const Hero = ({ data }) => {
 export default Hero
 
 const Header = styled(motion.header)`
-  margin: ${theme.space[6]}px 0;
+  margin-top: 96px;
 `
 
 const Title = styled(motion.h1)`

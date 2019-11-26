@@ -1,9 +1,13 @@
 import React from "react"
+import { motion } from "framer-motion"
+import styled from "styled-components"
+
+import theme from "@styles/theme"
 
 const Experience = ({ data }) => {
   const jobs = data.edges.map(edge => edge.node)
   return (
-    <section>
+    <ExperienceContainer>
       {jobs.map(job => (
         <section key={job.id}>
           <header>
@@ -13,8 +17,12 @@ const Experience = ({ data }) => {
           <div dangerouslySetInnerHTML={{ __html: job.html }} />
         </section>
       ))}
-    </section>
+    </ExperienceContainer>
   )
 }
 
 export default Experience
+
+const ExperienceContainer = styled(motion.section)`
+  margin-top: 160px;
+`
