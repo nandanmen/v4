@@ -4,6 +4,7 @@ import styled from "styled-components"
 import GlobalStyle from "@styles/GlobalStyle"
 import theme from "@styles/theme"
 import Nav from "./layout/Nav"
+import Footer from "./layout/Footer"
 
 const pages = [
   {
@@ -33,6 +34,7 @@ const Layout = ({ children }) => (
     <GlobalStyle />
     <Nav pages={pages} />
     <Main>{children}</Main>
+    <Footer />
   </>
 )
 
