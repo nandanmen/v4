@@ -40,7 +40,7 @@ const Experience = ({ data }) => {
             )}
           </JobDate>
         </JobHeader>
-        <div dangerouslySetInnerHTML={{ __html: activeJob.html }} />
+        <JobDescription dangerouslySetInnerHTML={{ __html: activeJob.html }} />
       </section>
     </ExperienceContainer>
   )
@@ -130,4 +130,19 @@ const JobTitle = styled(motion.h1)`
 
 const JobDate = styled(motion.p)`
   font-family: ${theme.fonts.mono};
+`
+
+const JobDescription = styled(motion.div)`
+  background-color: ${theme.colors.blacks[2]};
+  border-radius: 8px;
+  color: ${theme.colors.white};
+  padding: ${theme.space[3]}px ${theme.space[3]}px ${theme.space[3]}px
+    ${theme.space[5]}px;
+
+  li {
+    margin-bottom: 1em;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 `
