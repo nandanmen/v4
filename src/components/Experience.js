@@ -15,7 +15,11 @@ const Experience = ({ data }) => {
       <Title>Work</Title>
       <Tabs>
         {jobs.map((job, index) => (
-          <Tab key={job.id} onClick={() => setActiveJobIndex(index)}>
+          <Tab
+            isActive={index === activeJobIndex}
+            key={job.id}
+            onClick={() => setActiveJobIndex(index)}
+          >
             {job.frontmatter.company}
           </Tab>
         ))}
@@ -50,4 +54,23 @@ const Tabs = styled(motion.div)`
   justify-content: flex-start;
 `
 
-const Tab = styled(motion.button)``
+const Tab = styled(motion.button)`
+  border-radius: 8px;
+  color: ${theme.colors.text.primary};
+  cursor: pointer;
+  font-family: ${theme.fonts.mono};
+  font-size: 1em;
+  padding: ${theme.space[2]}px;
+
+  &:hover {
+    background-color: ${theme.colors.blacks[3]};
+    color: ${theme.colors.white};
+  }
+
+  ${({ isActive }) =>
+    isActive &&
+    `
+    background-color: ${theme.colors.blacks[2]};
+    color: ${theme.colors.white};
+  `}
+`

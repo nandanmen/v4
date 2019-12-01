@@ -30,6 +30,11 @@ const GlobalStyle = createGlobalStyle`
   h3 {
     color: ${theme.colors.text.heading};
   }
+
+  button {
+    border: none;
+    outline: none;
+  }
 `
 
 export default GlobalStyle
