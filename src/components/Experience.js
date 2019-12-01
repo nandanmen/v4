@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { motion } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 import styled from "styled-components"
 
 import theme from "@styles/theme"
@@ -7,10 +7,18 @@ import { getMonthText } from "@utils/date"
 import Dots from "./Dots"
 
 const Experience = ({ data }) => {
-  const [activeJobIndex, setActiveJobIndex] = useState(0)
+  const [[activeJobIndex, direction], setActiveJobIndex] = useState([0, 0])
 
   const jobs = data.edges.map(edge => edge.node)
   const activeJob = jobs[activeJobIndex]
+
+  const changeTab = index => {
+    if (index > activeJobIndex) {
+      setActiveJobIndex([index, 1])
+    } else {
+      setActiveJobIndex([index, -1])
+    }
+  }
 
   return (
     <ExperienceContainer>
@@ -20,7 +28,7 @@ const Experience = ({ data }) => {
           <Tab
             isActive={index === activeJobIndex}
             key={job.id}
-            onClick={() => setActiveJobIndex(index)}
+            onClick={() => changeTab(index)}
           >
             {job.frontmatter.company}
           </Tab>
@@ -30,8 +38,23 @@ const Experience = ({ data }) => {
       <section>
         <JobHeader>
           <JobTitle>
-            {activeJob.frontmatter.title} @{" "}
-            <span>{activeJob.frontmatter.company}</span>
+            <p>{activeJob.frontmatter.title}</p>
+            <p> @ </p>
+            <AnimateContainer>
+              <AnimatePresence custom={direction}>
+                <JobText
+                  key={activeJob.frontmatter.company}
+                  custom={direction}
+                  variants={titles}
+                  animate="center"
+                  initial="enter"
+                  exit="exit"
+                  transition={{ opacity: { duration: 0.2 } }}
+                >
+                  {activeJob.frontmatter.company}
+                </JobText>
+              </AnimatePresence>
+            </AnimateContainer>
           </JobTitle>
           <JobDate>
             {getJobDateText(
@@ -48,6 +71,21 @@ const Experience = ({ data }) => {
 
 export default Experience
 
+const titles = {
+  enter: direction => ({
+    opacity: 0,
+    y: direction < 0 ? -32 : 32,
+  }),
+  center: {
+    opacity: 1,
+    y: 0,
+  },
+  exit: direction => ({
+    opacity: 0,
+    y: direction < 0 ? 32 : -32,
+  }),
+}
+
 /**
  * @param {Date} startDate
  * @param {Date} endDate
@@ -63,6 +101,14 @@ const getJobDateText = (startDate, endDate) => {
   }
   return `${getMonthText(startDate)} ${startDate.getFullYear()} - Present`
 }
+
+const AnimateContainer = styled.div`
+  position: relative;
+  height: 20px;
+  &:last-child {
+    flex-grow: 1;
+  }
+`
 
 const ExperienceContainer = styled(motion.section)`
   margin-top: 160px;
@@ -124,8 +170,21 @@ const JobHeader = styled(motion.header)`
 `
 
 const JobTitle = styled(motion.h1)`
+  align-items: center;
+  display: flex;
   margin-bottom: ${theme.space[1]}px;
   font-weight: ${theme.fontWeights.semi};
+
+  > * {
+    margin-right: ${theme.space[1]}px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+`
+
+const JobText = styled(motion.p)`
+  position: absolute;
 `
 
 const JobDate = styled(motion.p)`
