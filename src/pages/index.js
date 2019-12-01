@@ -30,13 +30,14 @@ export const query = graphql`
       }
     }
     experience: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/work/" } }
+      filter: { fileAbsolutePath: { regex: "/experience/" } }
     ) {
       edges {
         node {
           id
           html
           frontmatter {
+            company
             title
             startDate
             endDate
