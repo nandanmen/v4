@@ -1,8 +1,11 @@
 import React from "react"
 import { motion } from "framer-motion"
 import styled from "styled-components"
+import { Github } from "styled-icons/boxicons-logos"
+import { LinkExternal } from "styled-icons/boxicons-regular"
 
 import theme from "@styles/theme"
+import { prop } from "@utils"
 import { Dot } from "./Dots"
 
 const Projects = ({ data }) => {
@@ -33,6 +36,16 @@ const Projects = ({ data }) => {
             </ProjectTech>
             <div dangerouslySetInnerHTML={{ __html: project.html }} />
           </ProjectDescription>
+          <ProjectFooter>
+            <Icon href={project.frontmatter.github}>
+              <Github />
+            </Icon>
+            {project.frontmatter.link && (
+              <Icon href={project.frontmatter.link}>
+                <LinkExternal />
+              </Icon>
+            )}
+          </ProjectFooter>
         </Project>
       ))}
     </ProjectsContainer>
@@ -50,12 +63,26 @@ const Title = styled(motion.h1)`
   margin-bottom: ${theme.space[4]}px;
 `
 
+const ProjectFooter = styled(motion.footer)`
+  display: flex;
+`
+
+const Icon = styled(motion.a)`
+  color: inherit;
+  height: ${theme.fontSizes[2]}px;
+  margin-right: ${theme.space[2]}px;
+
+  svg {
+    height: 100%;
+  }
+`
+
 const Project = styled(motion.section)`
   margin-bottom: ${theme.space[6]}px;
 `
 
 const ProjectThumbnail = styled(motion.figure)`
-  background-color: #${({ color }) => color};
+  background-color: #${prop("color")};
   border-radius: 8px;
   height: 368px;
   overflow: hidden;
@@ -83,6 +110,7 @@ const ProjectImg = styled(motion.img)`
 
 const ProjectDescription = styled(motion.article)`
   font-size: inherit;
+  margin-bottom: ${theme.space[3]}px;
 `
 
 const ProjectTitle = styled(motion.h1)`
