@@ -3,6 +3,7 @@ import { motion } from "framer-motion"
 import styled from "styled-components"
 
 import theme from "@styles/theme"
+import Dots from "./Dots"
 
 const Experience = ({ data }) => {
   const [activeJobIndex, setActiveJobIndex] = useState(0)
@@ -24,6 +25,7 @@ const Experience = ({ data }) => {
           </Tab>
         ))}
       </Tabs>
+      <Separator numX={10} space={theme.space[2]} />
       <section>
         <header>
           <h1>
@@ -46,12 +48,16 @@ const ExperienceContainer = styled(motion.section)`
 
 const Title = styled(motion.h1)`
   font-size: ${theme.fontSizes[2]}px;
+  margin-bottom: ${theme.space[4]}px;
 `
 
 const Tabs = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  flex-wrap: nowrap;
+  margin-bottom: ${theme.space[4]}px;
+  overflow-x: scroll;
 `
 
 const Tab = styled(motion.button)`
@@ -60,11 +66,19 @@ const Tab = styled(motion.button)`
   cursor: pointer;
   font-family: ${theme.fonts.mono};
   font-size: 1em;
+  margin-right: ${theme.space[2]}px;
   padding: ${theme.space[2]}px;
 
-  &:hover {
-    background-color: ${theme.colors.blacks[3]};
-    color: ${theme.colors.white};
+  /* show hover state only in non-mobile */
+  ${theme.breakpoints.sm} {
+    &:hover {
+      background-color: ${theme.colors.blacks[1]};
+      color: ${theme.colors.white};
+    }
+  }
+
+  &:last-child {
+    margin-right: 0;
   }
 
   ${({ isActive }) =>
@@ -72,5 +86,13 @@ const Tab = styled(motion.button)`
     `
     background-color: ${theme.colors.blacks[2]};
     color: ${theme.colors.white};
+
+    &:hover {
+      background-color: ${theme.colors.blacks[2]};
+    }
   `}
+`
+
+const Separator = styled(Dots)`
+  margin-bottom: ${theme.space[4]}px;
 `

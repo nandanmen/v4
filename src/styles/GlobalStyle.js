@@ -32,6 +32,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   button {
+    background: none;
     border: none;
     outline: none;
   }
