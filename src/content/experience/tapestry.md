@@ -1,5 +1,5 @@
 ---
-company: UBC Launchpad
+company: UBC Psychology
 title: Software Developer
 startDate: 2019-09-02
 endDate: 9999-12-31
