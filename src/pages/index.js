@@ -1,9 +1,10 @@
 import React from "react"
-import { graphql } from "gatsby"
 
 import { Experience, Hero, Layout, Projects } from "@components"
+import useIndexInfo from "@utils/useIndexInfo"
 
-const IndexPage = ({ data }) => {
+const IndexPage = () => {
+  const data = useIndexInfo()
   return (
     <Layout>
       <Hero data={data.hero} />
@@ -14,54 +15,3 @@ const IndexPage = ({ data }) => {
 }
 
 export default IndexPage
-
-export const query = graphql`
-  query ContentQuery {
-    hero: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/about/" } }
-    ) {
-      edges {
-        node {
-          html
-          frontmatter {
-            title
-          }
-        }
-      }
-    }
-    experience: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/experience/" } }
-    ) {
-      edges {
-        node {
-          id
-          html
-          frontmatter {
-            company
-            title
-            startDate
-            endDate
-          }
-        }
-      }
-    }
-    projects: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/projects/" } }
-    ) {
-      edges {
-        node {
-          id
-          html
-          frontmatter {
-            title
-            tech
-            github
-            link
-            color
-            cover
-          }
-        }
-      }
-    }
-  }
-`

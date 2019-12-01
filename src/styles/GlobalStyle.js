@@ -12,7 +12,13 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${theme.colors.blacks[0]};
     color: ${theme.colors.text.primary};
     font-family: ${theme.fonts.body};
-    font-size: 16px;
+    font-size: ${theme.fontSizes[0]}px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    ${theme.breakpoints.sm} {
+      font-size: ${theme.fontSizes[1]}px;
+    }
   }
 
   code {
@@ -23,6 +29,12 @@ const GlobalStyle = createGlobalStyle`
   h2,
   h3 {
     color: ${theme.colors.text.heading};
+  }
+
+  button {
+    background: none;
+    border: none;
+    outline: none;
   }
 `
 

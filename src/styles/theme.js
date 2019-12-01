@@ -1,3 +1,10 @@
+const breakpoints = {
+  xs: "@media screen and (min-width: 768px)",
+  sm: "@media screen and (min-width: 1024px)",
+  md: "@media screen and (min-width: 1366px)",
+  lg: "@media screen and (min-width: 1920px)",
+}
+
 const colors = {
   blacks: [`#09090b`, `#16171C`, `#262730`, `#373844`, `#373844`],
   blues: [`#362A89`, `#6D58FF`, `#5C86FF`],
@@ -38,6 +45,7 @@ const grid = {
 }
 
 export default {
+  breakpoints,
   colors,
   fonts,
   fontSizes,

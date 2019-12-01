@@ -3,7 +3,7 @@ path: /projects/russ
 title: Dictionary
 tech: [React Native, Typescript]
 github: https://github.com/narendrasss/russ-vocab
-color: 1890ff
+color: '66677D'
 cover: russ.png
 ---
 
