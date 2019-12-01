@@ -8,6 +8,7 @@ const Experience = ({ data }) => {
   const jobs = data.edges.map(edge => edge.node)
   return (
     <ExperienceContainer>
+      <Title>Work</Title>
       {jobs.map(job => (
         <section key={job.id}>
           <header>
@@ -25,4 +26,8 @@ export default Experience
 
 const ExperienceContainer = styled(motion.section)`
   margin-top: 160px;
+`
+
+const Title = styled(motion.h1)`
+  font-size: ${theme.fontSizes[2]}px;
 `
