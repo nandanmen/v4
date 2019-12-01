@@ -3,7 +3,7 @@ title: Coin
 tech: [React, Redux, Styled Components]
 github: https://github.com/narendrasss/coin-v2
 link: https://narendras-coin.netlify.com
-color: 373844
+color: '373844'
 cover: coin.png
 ---
 

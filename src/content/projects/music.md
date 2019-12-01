@@ -3,7 +3,7 @@ path: /projects/music
 title: Music
 tech: [React, Node.js, Express, PostgreSQL]
 github: https://github.com/narendrasss/music
-color: 262730
+color: '262730'
 cover: music.png
 ---
 
