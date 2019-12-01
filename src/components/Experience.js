@@ -12,7 +12,9 @@ const Experience = ({ data }) => {
       {jobs.map(job => (
         <section key={job.id}>
           <header>
-            <h1>{job.frontmatter.title}</h1>
+            <h1>
+              {job.frontmatter.title} @ <span>{job.frontmatter.company}</span>
+            </h1>
             <p>{new Date(job.frontmatter.startDate).toDateString()}</p>
           </header>
           <div dangerouslySetInnerHTML={{ __html: job.html }} />
