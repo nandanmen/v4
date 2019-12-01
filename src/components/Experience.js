@@ -3,6 +3,7 @@ import { motion } from "framer-motion"
 import styled from "styled-components"
 
 import theme from "@styles/theme"
+import { getMonthText } from "@utils/date"
 import Dots from "./Dots"
 
 const Experience = ({ data }) => {
@@ -27,13 +28,18 @@ const Experience = ({ data }) => {
       </Tabs>
       <Separator numX={10} space={theme.space[2]} />
       <section>
-        <header>
-          <h1>
+        <JobHeader>
+          <JobTitle>
             {activeJob.frontmatter.title} @{" "}
             <span>{activeJob.frontmatter.company}</span>
-          </h1>
-          <p>{new Date(activeJob.frontmatter.startDate).toDateString()}</p>
-        </header>
+          </JobTitle>
+          <JobDate>
+            {getJobDateText(
+              new Date(activeJob.frontmatter.startDate),
+              new Date(activeJob.frontmatter.endDate)
+            )}
+          </JobDate>
+        </JobHeader>
         <div dangerouslySetInnerHTML={{ __html: activeJob.html }} />
       </section>
     </ExperienceContainer>
@@ -41,6 +47,22 @@ const Experience = ({ data }) => {
 }
 
 export default Experience
+
+/**
+ * @param {Date} startDate
+ * @param {Date} endDate
+ */
+const getJobDateText = (startDate, endDate) => {
+  const hasEndDate = endDate.getFullYear() !== 9999
+  if (hasEndDate) {
+    return `${getMonthText(
+      startDate
+    )} ${startDate.getFullYear()} - ${getMonthText(
+      endDate
+    )} ${endDate.getFullYear()}`
+  }
+  return `${getMonthText(startDate)} ${startDate.getFullYear()} - Present`
+}
 
 const ExperienceContainer = styled(motion.section)`
   margin-top: 160px;
@@ -95,4 +117,17 @@ const Tab = styled(motion.button)`
 
 const Separator = styled(Dots)`
   margin-bottom: ${theme.space[4]}px;
+`
+
+const JobHeader = styled(motion.header)`
+  margin-bottom: ${theme.space[3]}px;
+`
+
+const JobTitle = styled(motion.h1)`
+  margin-bottom: ${theme.space[1]}px;
+  font-weight: ${theme.fontWeights.semi};
+`
+
+const JobDate = styled(motion.p)`
+  font-family: ${theme.fonts.mono};
 `
