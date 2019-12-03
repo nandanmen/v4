@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 
 const defaultOptions = {
-  threshold: 0.25
+  threshold: 0.25,
 }
 
 const useIntersectionObserver = (ref, options = defaultOptions) => {
@@ -9,7 +9,7 @@ const useIntersectionObserver = (ref, options = defaultOptions) => {
   const [wasTriggered, setWasTriggered] = useState(false)
   const [entry, setEntry] = useState(null)
 
-  let observer;
+  let observer
 
   useEffect(() => {
     if (observer && ref.current && !wasTriggered) {
@@ -17,7 +17,7 @@ const useIntersectionObserver = (ref, options = defaultOptions) => {
     }
   }, [observer, ref, wasTriggered])
 
-  if (!window || !window.IntersectionObserver) {
+  if (typeof window === "undefined") {
     return [false, null]
   }
 
