@@ -174,7 +174,6 @@ const Tab = styled(motion.button)`
   /* show hover state only in non-mobile */
   ${theme.breakpoints.sm} {
     &:hover {
-      background-color: ${theme.colors.blacks[1]};
       color: ${theme.colors.white};
     }
   }
