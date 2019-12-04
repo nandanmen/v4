@@ -24,10 +24,10 @@ const ProjectCard = ({ frontmatter, html }) => {
         <ProjectTitle>{frontmatter.title}</ProjectTitle>
         <ProjectTech>
           {frontmatter.tech.map((tech, index) => (
-            <>
+            <React.Fragment key={tech}>
               <code key={tech}>{tech}</code>
               {index < frontmatter.tech.length - 1 && <Separator key={index} />}
-            </>
+            </React.Fragment>
           ))}
         </ProjectTech>
         <div dangerouslySetInnerHTML={{ __html: html }} />
