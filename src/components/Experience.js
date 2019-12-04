@@ -1,18 +1,21 @@
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import styled from "styled-components"
 
 import theme from "@styles/theme"
 import { getMonthText } from "@utils/date"
 import useFadeIn from "@utils/useFadeIn"
+import { prop } from "@utils"
 import Dots from "./Dots"
 
 const Experience = ({ data }) => {
   const [[activeJobIndex, direction], setActiveJobIndex] = useState([0, 0])
   const [ref, props] = useFadeIn()
+  const refs = useRef([])
 
   const jobs = data.edges.map(edge => edge.node)
   const activeJob = jobs[activeJobIndex]
+  const tabBackgroundProps = getTabBackgroundProps(refs, activeJobIndex)
 
   const changeTab = index => {
     if (index > activeJobIndex) {
@@ -26,11 +29,16 @@ const Experience = ({ data }) => {
     <ExperienceContainer ref={ref} {...props}>
       <Title>Work</Title>
       <Tabs>
+        <TabBackground
+          layoutTransition={{ duration: 0.2 }}
+          {...tabBackgroundProps}
+        />
         {jobs.map((job, index) => (
           <Tab
             isActive={index === activeJobIndex}
             key={job.id}
             onClick={() => changeTab(index)}
+            ref={el => refs.current.push(el)}
           >
             {job.frontmatter.company}
           </Tab>
@@ -72,6 +80,18 @@ const Experience = ({ data }) => {
 }
 
 export default Experience
+
+const getTabBackgroundProps = (refs, activeIndex) => {
+  if (!refs.current.length) return { height: 0, left: 0, width: 0 }
+
+  const activeRef = refs.current[activeIndex]
+  const rect = activeRef.getBoundingClientRect()
+  return {
+    height: rect.height,
+    left: rect.left,
+    width: rect.width,
+  }
+}
 
 const titles = {
   enter: direction => ({
@@ -127,7 +147,19 @@ const Tabs = styled(motion.div)`
   justify-content: flex-start;
   flex-wrap: nowrap;
   margin-bottom: ${theme.space[4]}px;
+  position: relative;
   overflow-x: scroll;
+`
+
+const TabBackground = styled(motion.div)`
+  background-color: ${theme.colors.blacks[2]};
+  border-radius: 8px;
+  height: ${prop("height")}px;
+  left: calc(${prop("left")}px - 16px);
+  position: absolute;
+  width: ${prop("width")}px;
+  top: 0;
+  z-index: -1;
 `
 
 const Tab = styled(motion.button)`
@@ -154,12 +186,7 @@ const Tab = styled(motion.button)`
   ${({ isActive }) =>
     isActive &&
     `
-    background-color: ${theme.colors.blacks[2]};
     color: ${theme.colors.white};
-
-    &:hover {
-      background-color: ${theme.colors.blacks[2]};
-    }
   `}
 `
 
