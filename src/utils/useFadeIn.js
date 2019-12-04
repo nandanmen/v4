@@ -6,6 +6,7 @@ const useFadeIn = () => {
   const [isInView] = useIntersectionObserver(ref)
   const props = {
     animate: isInView ? "show" : "hide",
+    initial: "hide",
     transition,
     variants,
   }

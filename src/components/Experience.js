@@ -4,10 +4,12 @@ import styled from "styled-components"
 
 import theme from "@styles/theme"
 import { getMonthText } from "@utils/date"
+import useFadeIn from "@utils/useFadeIn"
 import Dots from "./Dots"
 
 const Experience = ({ data }) => {
   const [[activeJobIndex, direction], setActiveJobIndex] = useState([0, 0])
+  const [ref, props] = useFadeIn()
 
   const jobs = data.edges.map(edge => edge.node)
   const activeJob = jobs[activeJobIndex]
@@ -21,7 +23,7 @@ const Experience = ({ data }) => {
   }
 
   return (
-    <ExperienceContainer>
+    <ExperienceContainer ref={ref} {...props}>
       <Title>Work</Title>
       <Tabs>
         {jobs.map((job, index) => (
