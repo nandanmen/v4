@@ -34,6 +34,7 @@ const SidebarContainer = styled(motion.aside)`
   background-color: #222223;
   opacity: 1;
   transform: translateX(-100%);
+  z-index: 10;
 
   ${theme.breakpoints.sm} {
     opacity: 0;
