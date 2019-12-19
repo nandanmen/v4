@@ -43,7 +43,12 @@ const childVariants = {
 const Hero = ({ data }) => {
   const { html, frontmatter } = data.edges[0].node
   return (
-    <Header animate="visible" initial="hidden" variants={containerVariants}>
+    <Header
+      animate="visible"
+      initial="hidden"
+      transition={{ delay: 0.2 }}
+      variants={containerVariants}
+    >
       <Dots variants={childVariants} numX={6} numY={2} space={theme.space[2]} />
       <Title variants={childVariants}>{frontmatter.title}</Title>
       <Description
