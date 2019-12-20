@@ -8,7 +8,14 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 
+  html,
   body {
+    width: 100vw;
+    overflow-x: hidden;
+  }
+
+  body {
+    position: relative;
     background-color: ${theme.colors.blacks[0]};
     color: ${theme.colors.text.primary};
     font-family: ${theme.fonts.body};
