@@ -155,11 +155,15 @@ const TabBackground = styled(motion.div)`
   background-color: ${theme.colors.blacks[2]};
   border-radius: 8px;
   height: ${prop("height")}px;
-  left: calc(${prop("left")}px - 16px);
+  left: calc(${prop("left")}px - ${theme.space[3]}px);
   position: absolute;
   width: ${prop("width")}px;
   top: 0;
   z-index: -1;
+
+  ${theme.breakpoints.xs} {
+    left: calc(${prop("left")}px - ${theme.space[8]}px);
+  }
 `
 
 const Tab = styled(motion.button)`
