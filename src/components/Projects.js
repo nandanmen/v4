@@ -21,6 +21,7 @@ export default Projects
 
 const ProjectsContainer = styled(motion.section)`
   margin-top: ${theme.space[8]}px;
+  width: 100%;
 `
 
 const Title = styled(motion.h1)`
