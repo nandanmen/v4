@@ -42,4 +42,15 @@ export default Layout
 
 const Main = styled.main`
   padding: ${theme.space[3]}px;
+
+  ${theme.breakpoints.xs} {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-column-gap: ${theme.space[2]}px;
+    padding: ${theme.space[3]}px ${theme.space[8]}px;
+
+    > * {
+      grid-column: 1 / -1;
+    }
+  }
 `
