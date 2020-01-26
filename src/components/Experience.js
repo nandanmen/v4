@@ -126,7 +126,7 @@ const getJobDateText = (startDate, endDate) => {
 
 const AnimateContainer = styled.div`
   position: relative;
-  height: 20px;
+  align-self: stretch;
   &:last-child {
     flex-grow: 1;
   }
@@ -163,6 +163,14 @@ const TabBackground = styled(motion.div)`
 
   ${theme.breakpoints.xs} {
     left: calc(${prop("left")}px - ${theme.space[8]}px);
+  }
+
+  ${theme.breakpoints.sm} {
+    left: calc(${prop("left")}px - 120px);
+  }
+
+  ${theme.breakpoints.md} {
+    left: calc(${prop("left")}px - 156px);
   }
 `
 

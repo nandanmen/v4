@@ -23,11 +23,11 @@ colors.blues.light = colors.blues[2]
 const fonts = {
   body: `'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;`,
   var: `'Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;`,
-  mono: `source-code-pro, Menlo, Consolas, 'Courier New', Courier,
+  mono: `SF Mono, source-code-pro, Menlo, Consolas, 'Courier New', Courier,
     monospace;`,
 }
 
-const fontSizes = [14, 16, 24, 32, 40, 80]
+const fontSizes = [14, 16, 24, 32, 40, 56, 80]
 
 const fontWeights = {
   bold: 700,

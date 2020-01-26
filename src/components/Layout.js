@@ -53,4 +53,12 @@ const Main = styled.main`
       grid-column: 1 / -1;
     }
   }
+
+  ${theme.breakpoints.sm} {
+    padding: ${theme.space[3]}px 120px;
+  }
+
+  ${theme.breakpoints.md} {
+    padding: ${theme.space[3]}px 156px; 
+  }
 `

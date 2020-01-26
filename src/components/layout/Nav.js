@@ -58,6 +58,16 @@ const NavContainer = styled.nav`
     justify-content: flex-start;
     padding: ${theme.space[4]}px ${theme.space[8]}px;
   }
+
+  ${theme.breakpoints.sm} {
+    padding-left: 120px;
+    padding-right: 120px;
+  }
+
+  ${theme.breakpoints.md} {
+    padding-left: 156px;
+    padding-right: 156px;
+  }
 `
 
 const NavItemsContainer = styled.ul`
