@@ -53,12 +53,27 @@ const NavContainer = styled.nav`
   align-items: center;
   display: flex;
   justify-content: space-between;
+
+  ${theme.breakpoints.xs} {
+    justify-content: flex-start;
+    padding: ${theme.space[4]}px ${theme.space[8]}px;
+  }
+
+  ${theme.breakpoints.sm} {
+    padding-left: 120px;
+    padding-right: 120px;
+  }
+
+  ${theme.breakpoints.md} {
+    padding-left: 156px;
+    padding-right: 156px;
+  }
 `
 
 const NavItemsContainer = styled.ul`
   align-items: center;
   display: flex;
-
+  flex-grow: 1;
   list-style: none;
 `
 
@@ -73,6 +88,12 @@ const NavItem = styled.li`
     opacity: 1;
     pointer-events: all;
   }
+
+  ${theme.breakpoints.xs} {
+    margin-right: ${theme.space[5]}px;
+    opacity: 1;
+    pointer-events: all;
+  }
 `
 
 const Link = styled(BaseLink)`
@@ -83,5 +104,13 @@ const Link = styled(BaseLink)`
 `
 
 const Logo = styled(Dots)`
+  position: fixed;
+  top: ${theme.space[3]}px;
+  left: ${theme.space[3]}px;
   z-index: 20;
+
+  ${theme.breakpoints.xs} {
+    top: ${theme.space[4]}px;
+    left: ${theme.space[4]}px;
+  }
 `

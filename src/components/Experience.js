@@ -126,7 +126,7 @@ const getJobDateText = (startDate, endDate) => {
 
 const AnimateContainer = styled.div`
   position: relative;
-  height: 20px;
+  align-self: stretch;
   &:last-child {
     flex-grow: 1;
   }
@@ -155,11 +155,23 @@ const TabBackground = styled(motion.div)`
   background-color: ${theme.colors.blacks[2]};
   border-radius: 8px;
   height: ${prop("height")}px;
-  left: calc(${prop("left")}px - 16px);
+  left: calc(${prop("left")}px - ${theme.space[3]}px);
   position: absolute;
   width: ${prop("width")}px;
   top: 0;
   z-index: -1;
+
+  ${theme.breakpoints.xs} {
+    left: calc(${prop("left")}px - ${theme.space[8]}px);
+  }
+
+  ${theme.breakpoints.sm} {
+    left: calc(${prop("left")}px - 120px);
+  }
+
+  ${theme.breakpoints.md} {
+    left: calc(${prop("left")}px - 156px);
+  }
 `
 
 const Tab = styled(motion.button)`

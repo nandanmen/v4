@@ -20,28 +20,32 @@ const ProjectCard = ({ frontmatter, html }) => {
           src={`./thumbnails/${frontmatter.cover}`}
         />
       </ProjectThumbnail>
-      <ProjectDescription>
-        <ProjectTitle>{frontmatter.title}</ProjectTitle>
-        <ProjectTech>
-          {frontmatter.tech.map((tech, index) => (
-            <React.Fragment key={tech}>
-              <code key={tech}>{tech}</code>
-              {index < frontmatter.tech.length - 1 && <Separator key={index} />}
-            </React.Fragment>
-          ))}
-        </ProjectTech>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
-      </ProjectDescription>
-      <ProjectFooter>
-        <Icon href={frontmatter.github}>
-          <Github />
-        </Icon>
-        {frontmatter.link && (
-          <Icon href={frontmatter.link}>
-            <LinkExternal />
+      <ProjectMeta>
+        <ProjectDescription>
+          <ProjectTitle>{frontmatter.title}</ProjectTitle>
+          <ProjectTech>
+            {frontmatter.tech.map((tech, index) => (
+              <React.Fragment key={tech}>
+                <code key={tech}>{tech}</code>
+                {index < frontmatter.tech.length - 1 && (
+                  <Separator key={index} />
+                )}
+              </React.Fragment>
+            ))}
+          </ProjectTech>
+          <div dangerouslySetInnerHTML={{ __html: html }} />
+        </ProjectDescription>
+        <ProjectFooter>
+          <Icon href={frontmatter.github}>
+            <Github />
           </Icon>
-        )}
-      </ProjectFooter>
+          {frontmatter.link && (
+            <Icon href={frontmatter.link}>
+              <LinkExternal />
+            </Icon>
+          )}
+        </ProjectFooter>
+      </ProjectMeta>
     </Project>
   )
 }
@@ -64,6 +68,19 @@ const Icon = styled(motion.a)`
 
 const Project = styled(motion.section)`
   margin-bottom: ${theme.space[6]}px;
+
+  ${theme.breakpoints.xs} {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-gap: ${theme.space[3]}px;
+    margin-bottom: ${theme.space[4]}px;
+  }
+`
+
+const ProjectMeta = styled.div`
+  ${theme.breakpoints.xs} {
+    grid-column: span 3 / -1;
+  }
 `
 
 const ProjectThumbnail = styled(motion.figure)`
@@ -73,6 +90,12 @@ const ProjectThumbnail = styled(motion.figure)`
   overflow: hidden;
   margin-bottom: ${theme.space[4]}px;
   width: 100%;
+
+  ${theme.breakpoints.xs} {
+    grid-column: 1 / span 3;
+    height: 288px;
+    margin-bottom: 0;
+  }
 `
 
 const ProjectImg = styled(motion.img)`
@@ -108,6 +131,10 @@ const ProjectTech = styled(motion.div)`
   align-items: center;
   font-size: inherit;
   margin-bottom: ${theme.space[3]}px;
+
+  ${theme.breakpoints.xs} {
+    flex-wrap: wrap;
+  }
 `
 
 const Separator = styled(Dot)`
