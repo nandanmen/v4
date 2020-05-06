@@ -1,31 +1,18 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 
 import Layout from "@components/Layout"
+import useModules from "@utils/useModules"
 
 export default function IndexPage() {
-  const content = useStaticQuery(graphql`
-    query ContentQuery {
-      header: allMarkdownRemark {
-        edges {
-          node {
-            html
-            frontmatter {
-              title
-              description
-            }
-          }
-        }
-      }
-    }
-  `)
-  console.log(content)
+  const modules = useModules()
   return (
     <Layout>
-      <h1>{content.header.edges[0].node.frontmatter.title}</h1>
-      <div
-        dangerouslySetInnerHTML={{ __html: content.header.edges[0].node.html }}
-      />
+      {modules.map(module => (
+        <div key={module.id}>
+          <h1>{module.frontmatter.title}</h1>
+          <p>{module.frontmatter.description}</p>
+        </div>
+      ))}
     </Layout>
   )
 }
