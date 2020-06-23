@@ -1,4 +1,4 @@
 ---
-title: Marketplace Assistant
+title: Marketplace
 description: Sell easier with the marketplace bot
 ---
