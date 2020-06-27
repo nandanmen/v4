@@ -1,9 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 
-export default function Module({ module }) {
+export default function Module({ module, color }) {
   return (
-    <ModuleWrapper>
+    <ModuleWrapper bg={color}>
       <h1>{module.frontmatter.title}</h1>
       <p>{module.frontmatter.description}</p>
     </ModuleWrapper>
@@ -11,7 +11,7 @@ export default function Module({ module }) {
 }
 
 const ModuleWrapper = styled.div`
-  background: #2E4756;
+  background: ${props => props.bg};
   border-radius: 1em;
   padding: 2em;
 `

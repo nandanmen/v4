@@ -18,7 +18,8 @@
     "gatsby-transformer-remark": "^2.6.32",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "styled-components": "^4.4.1"
+    "styled-components": "^4.4.1",
+    "styled-icons": "^10.5.0"
   },
   "devDependencies": {
     "prettier": "^1.18.2"
