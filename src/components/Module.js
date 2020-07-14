@@ -6,6 +6,7 @@ export default function Module({ module, color }) {
     <ModuleWrapper bg={color}>
       <h1>{module.frontmatter.title}</h1>
       <p>{module.frontmatter.description}</p>
+      <article dangerouslySetInnerHTML={{ __html: module.html }} />
     </ModuleWrapper>
   )
 }

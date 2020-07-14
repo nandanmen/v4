@@ -4,20 +4,18 @@ import { Github, LinkedinSquare, Twitter } from "@styled-icons/boxicons-logos"
 
 import Layout from "@components/Layout"
 import Module from "@components/Module"
+import useAbout from "@utils/useAbout"
 import useModules from "@utils/useModules"
 
 const colors = ["#b5838d", "#6d6875", "#6930c3", "#457b9d"]
 
 export default function IndexPage() {
   const modules = useModules()
+  const about = useAbout()
   return (
     <Layout>
       <About>
-        <h1>Hi! I'm Nanda.</h1>
-        <p>
-          I'm a senior developer @ Tapestry, tech lead @ UBC Launchpad and 5th
-          year Business and Computer Science @ UBC.
-        </p>
+        <div dangerouslySetInnerHTML={{ __html: about.html }} />
         <Socials>
           <li>
             <Github size="32" />

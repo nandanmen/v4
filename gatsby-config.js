@@ -9,7 +9,7 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
-      options: { name: "content", path: `${__dirname}/src/modules/` },
+      options: { name: "content", path: `${__dirname}/content/` },
     },
     `gatsby-transformer-remark`,
   ],
