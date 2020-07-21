@@ -15,7 +15,7 @@ export default function IndexPage() {
   return (
     <Layout>
       <About>
-        <div dangerouslySetInnerHTML={{ __html: about.html }} />
+        <AboutContent dangerouslySetInnerHTML={{ __html: about.html }} />
         <Socials>
           <li>
             <Github size="32" />
@@ -39,6 +39,20 @@ export default function IndexPage() {
 
 const About = styled.section`
   grid-column: 1 / span 2;
+`
+
+const AboutContent = styled.article`
+  > * {
+    margin-bottom: 1em;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  h1 {
+    font-size: 2em;
+  }
 `
 
 const Modules = styled.section`

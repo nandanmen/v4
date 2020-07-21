@@ -17,5 +17,7 @@ export default function useModules() {
       }
     }
   `)
-  return data.allMarkdownRemark.edges.map(e => e.node)
+  const modules = data.allMarkdownRemark.edges.map(e => e.node)
+  modules.sort((a, b) => a.frontmatter.order - b.frontmatter.order)
+  return modules
 }
